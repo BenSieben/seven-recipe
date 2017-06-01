@@ -19,10 +19,27 @@ class LandingView extends View {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Website</title>
+    <title>Seven Recipe</title>
 </head>
 <body>
-<p>Test website</p>
+    <h1>Seven Recipe</h1>
+    <h2>Recipe Search</h2>
+    <form name="recipeSearchForm" action="" method="get">
+        <label>Filter by recipe name:
+            <input type="text" name="recipeSearch" placeholder="Recipe name (or portion of recipe name)" size="40"/>
+        </label>
+        <br />
+        <label>Filter by a category:
+            <select name="categorySelect" title="Category Selection">
+                <option>Category 1</option>
+                <option>Category 2</option>
+                <option>Category 3</option>
+            </select>
+        </label>
+        <br />
+        <input type="submit" value="Filter results" />
+    </form>
+    <p>Recipes will load down here</p>
 </body>
 </html>
 <?php

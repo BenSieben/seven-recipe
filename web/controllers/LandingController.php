@@ -1,6 +1,5 @@
 <?php
 namespace seven_recipe\controllers;
-
 use seven_recipe\views\LandingView;
 
 /**
@@ -11,6 +10,10 @@ use seven_recipe\views\LandingView;
  */
 class LandingController extends Controller{
 
+    /**
+     * Looks at PHP super globals to set up data
+     * to pass to the landing view
+     */
     public function callView() {
         $view = new LandingView();
         $view->render(null);
