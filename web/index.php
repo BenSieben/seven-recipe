@@ -4,8 +4,6 @@ namespace seven_recipe;
 // Require Composer's autoload file (to autoload included vendors)
 require_once("../vendor/autoload.php");
 
-$app = new Silex\Application();
-
 // Implement autoloader for seven_recipe's files
 spl_autoload_register(function ($className) {
     // all files are in web or root folder, which makes it the prefixes
@@ -26,7 +24,9 @@ spl_autoload_register(function ($className) {
     }
 });
 
+/*
 //Code to get PDO connection to Heroku Database
+$app = new Silex\Application();
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
@@ -40,6 +40,9 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
+
+$app->run();
+*/
 
 /**
  * All links for the website go through this index.php
