@@ -1,0 +1,12 @@
+{
+    "name": "bensieben/seven-recipe",
+    "description": "Seven-Recipe Website",
+    "authors": [
+        {
+            "name": "Ben Sieben"
+        }
+    ],
+    "require": {
+        "herrera-io/silex-pdo": "^1.2"
+    }
+}
