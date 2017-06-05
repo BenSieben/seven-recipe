@@ -2,7 +2,9 @@
 namespace seven_recipe;
 
 // Require Composer's autoload file (to autoload included vendors)
-require_once("vendor/autoload.php");
+require_once("../vendor/autoload.php");
+
+$app = new Silex\Application();
 
 // Implement autoloader for seven_recipe's files
 spl_autoload_register(function ($className) {
@@ -23,6 +25,21 @@ spl_autoload_register(function ($className) {
         }
     }
 });
+
+//Code to get PDO connection to Heroku Database
+$dbopts = parse_url(getenv('DATABASE_URL'));
+$app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
+               array(
+                'pdo.server' => array(
+                   'driver'   => 'pgsql',
+                   'user' => $dbopts["user"],
+                   'password' => $dbopts["pass"],
+                   'host' => $dbopts["host"],
+                   'port' => $dbopts["port"],
+                   'dbname' => ltrim($dbopts["path"],'/')
+                   )
+               )
+);
 
 /**
  * All links for the website go through this index.php
