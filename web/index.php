@@ -1,5 +1,4 @@
 <?php
-namespace seven_recipe;
 
 //Code to get PDO connection to Heroku Database
 $app = new Silex\Application();
