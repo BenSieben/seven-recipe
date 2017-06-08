@@ -75,8 +75,8 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     print_r($_REQUEST);
     echo " -->\n";
     // Make a new Controller to determine what page to show to user
-    $controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
-    $controller->processForms();
+    //$controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
+    //$controller->processForms();
     return "";
     //return "<!-- Comment returned --><!DOCTYPE html><html lang=\"en\"><head><title>Seven Recipe</title></head><body><p>Seven Recipe</p></body></html>";
     //return $app['twig']->render('index.php');
