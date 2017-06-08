@@ -56,9 +56,9 @@ spl_autoload_register(function ($className) {
 $app->get('/', function() use($app) {
     $app['monolog']->addDebug('logging output.');
     // Make a new Controller to determine what page to show to user
-    $controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
-    $controller->processForms();
-    return "";
+    //$controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
+    //$controller->processForms();
+    return "<!-- Comment returned --><!DOCTYPE html><html lang=\"en\"><head><title>Seven Recipe</title></head><body><p>Seven Recipe</p></body></html>";
     //return $app['twig']->render('index.php');
 });
 
