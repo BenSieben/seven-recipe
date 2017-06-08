@@ -16,7 +16,10 @@ class Controller {
             }
         }
         else { // if $_REQUEST['c'] is not set, then show default landing page
-            header("Location: " . Config::BASE_URL . "?c=landing");
+            //header("Location: " . Config::BASE_URL . "?c=landing");
+            //Trying out just using the landing controller directly instead of header()
+            $lc = new LandingController();
+            $lc->callView();
         }
     }
 
