@@ -7,6 +7,6 @@ namespace seven_recipe\configs;
  */
 class Config {
 
-    const BASE_URL = "http://192.168.2.193/seven_recipe/web";  // URL to the index.php location
+    const BASE_URL = "https://seven-recipe.herokuapp.com/";  // URL to the website on Heroku
 }
 ?>
