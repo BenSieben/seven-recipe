@@ -15,12 +15,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/',
 ));
 
-// Our web handlers
-$app->get('/', function() use($app) {
-    $app['monolog']->addDebug('logging output.');
-    return $app['twig']->render('index.php');
-});
-
+// Set up database PDO
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
@@ -34,8 +29,6 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
-
-$app->run();
 
 // Require Composer's autoload file (to autoload included vendors)
 require_once("../vendor/autoload.php");
@@ -60,12 +53,17 @@ spl_autoload_register(function ($className) {
     }
 });
 
-/**
- * All links for the website go through this index.php
- */
+// Our web handler
+$app->get('/', function() use($app) {
+    $app['monolog']->addDebug('logging output.');
+    // Make a new Controller to determine what page to show to user
+    $controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
+    $controller->processForms();
+    return "";
+    //return $app['twig']->render('index.php');
+});
 
-// Make a new Controller to determine what page to show to user
-$controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
-$controller->processForms();
+
+$app->run();
 
 ?>
