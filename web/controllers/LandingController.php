@@ -1,6 +1,7 @@
 <?php
 namespace seven_recipe\controllers;
 use seven_recipe\views\LandingView;
+use seven_recipe\configs\Config;
 
 /**
  * Class LandingController
@@ -16,7 +17,21 @@ class LandingController {
      */
     public function callView() {
         $view = new LandingView();
-        $view->render(null);
+        $data = $this->setUpViewData();
+        $view->render($data);
+    }
+
+    /**
+     * Sets up an array of data that the landing view needs to be set up
+     * @return array data that the landing view needs to create the web page
+     */
+    private function setUpViewData() {
+        $data = [];
+
+        //Add base url to
+        $data['url'] = Config::BASE_URL;
+
+        return $data;
     }
 
 }

@@ -20,6 +20,7 @@ class LandingView extends View {
 <head>
     <meta charset="UTF-8">
     <title>Seven Recipe</title>
+    <link rel="icon" href="<?= $data['url'] ?>/images/favicon.ico" />
 </head>
 <body>
     <h1>Seven Recipe</h1>
