@@ -54,6 +54,21 @@ spl_autoload_register(function ($className) {
 // Our web handler
 $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use($app) {
     $app['monolog']->addDebug('logging output.');
+    if(isset($_REQUEST['c'])) { // c is name of Controller to call
+        if(strcmp($_REQUEST['c'], 'landing') === 0) { // use LandingController
+            $lc = new \seven_recipe\controllers\LandingController();
+            $lc->callView();
+        }
+        else { // if $_REQUEST['c'] is set but not a valid value, then show default landing page
+            header("Location: " . \seven_recipe\configs\Config::BASE_URL . "?c=landing");
+        }
+    }
+    else { // if $_REQUEST['c'] is not set, then show default landing page
+        header("Location: " . \seven_recipe\configs\Config::BASE_URL . "?c=landing");
+        //Trying out just using the landing controller directly instead of header() - it works
+        //$lc = new LandingController();
+        //$lc->callView();
+    }
     echo "<!-- " . strval($request) . " -->\n";
     $request->overrideGlobals();
     echo "<!-- ";
