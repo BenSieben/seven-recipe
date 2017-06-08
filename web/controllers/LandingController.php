@@ -8,7 +8,7 @@ use seven_recipe\views\LandingView;
  *
  * Controller for landing view of the seven_recipe website
  */
-class LandingController extends Controller{
+class LandingController {
 
     /**
      * Looks at PHP super globals to set up data
