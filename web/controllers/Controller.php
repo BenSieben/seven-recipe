@@ -14,6 +14,9 @@ class Controller {
                 $lc = new LandingController();
                 $lc->callView();
             }
+            else { // if $_REQUEST['c'] is set but not a valid value, then show default landing page
+                header("Location: " . Config::BASE_URL . "?c=landing");
+            }
         }
         else { // if $_REQUEST['c'] is not set, then show default landing page
             header("Location: " . Config::BASE_URL . "?c=landing");
