@@ -1,4 +1,6 @@
 <?php
+// Require Composer's autoload file (to autoload included vendors)
+require_once("../vendor/autoload.php");
 
 //Code to get PDO connection to Heroku Database
 $app = new Silex\Application();
@@ -28,9 +30,6 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
-
-// Require Composer's autoload file (to autoload included vendors)
-require_once("../vendor/autoload.php");
 
 // Implement autoloader for seven_recipe's files
 spl_autoload_register(function ($className) {
