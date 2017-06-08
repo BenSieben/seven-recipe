@@ -52,8 +52,9 @@ spl_autoload_register(function ($className) {
 });
 
 // Our web handler
-$app->get('/', function() use($app) {
+$app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use($app) {
     $app['monolog']->addDebug('logging output.');
+    $request->overrideGlobals();
     // Make a new Controller to determine what page to show to user
     $controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
     $controller->processForms();
