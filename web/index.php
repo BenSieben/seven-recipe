@@ -59,8 +59,8 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     echo "<!-- ";
     print_r($_REQUEST);
     echo " -->\n";
-    //$lc = new seven_recipe\controllers\LandingController($app['pdo']);
-    $lc = new seven_recipe\controllers\LandingController(null);
+    $lc = new seven_recipe\controllers\LandingController($app['pdo']);
+    //$lc = new seven_recipe\controllers\LandingController(null);
     $lc->callView();
     // Make a new Controller to determine what page to show to user
     //$controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
