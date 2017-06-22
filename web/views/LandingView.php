@@ -1,5 +1,6 @@
 <?php
 namespace seven_recipe\views;
+use seven_recipe\views\elements\RecipeTableElement;
 
 /**
  * Class LandingView
@@ -41,7 +42,10 @@ class LandingView extends View {
         <br />
         <input type="submit" value="Filter results" />
     </form>
-    <p>Recipes will load down here</p>
+<?php
+    $rte = new RecipeTableElement();
+    echo $rte->render($data['recipeAttributes'], $data['recipes']);
+?>
 </body>
 </html>
 <?php

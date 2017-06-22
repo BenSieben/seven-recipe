@@ -1,5 +1,6 @@
 <?php
 namespace seven_recipe\controllers;
+use seven_recipe\models\ReadRecipeModel;
 use seven_recipe\views\LandingView;
 use seven_recipe\configs\Config;
 
@@ -10,6 +11,16 @@ use seven_recipe\configs\Config;
  * Controller for landing view of the seven_recipe website
  */
 class LandingController {
+
+    private $pdo;  // PDO to allow access to the recipe database
+
+    /**
+     * Constructs a new LandingController
+     * @param $pdo PDO reference to database that has recieps relation
+     */
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
+    }
 
     /**
      * Looks at PHP super globals to set up data
@@ -28,8 +39,23 @@ class LandingController {
     private function setUpViewData() {
         $data = [];
 
-        //Add base url to
+        //Add base url to data
         $data['url'] = Config::BASE_URL;
+
+        //Add headers
+        $data['recipeAttributes'] = Config::RECIPE_ATTRIBUTES;
+
+        //Use ReadRecipeModel to get data from recipes relation
+        $data['recipes'] = [];
+        $readRecipeModel = new ReadRecipeModel();
+        $result = $readRecipeModel->getAllRecipes($this->pdo);
+        if($result !== false) {
+            foreach($result as $row) {
+                $recipeInfo['link'] = Config::BASE_URL;  // TODO update BASE_URL to link of full recipe details
+                $recipeInfo['content'] = $row;
+                array_push($data['recipes'], $recipeInfo);
+            }
+        }
 
         return $data;
     }
