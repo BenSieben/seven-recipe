@@ -10,12 +10,6 @@ CREATE TABLE recipes(
   description VARCHAR(100) NOT NULL DEFAULT 'No description provided',
   ingredients VARCHAR(5000) NOT NULL DEFAULT 'No ingredients given',
   instructions VARCHAR(5000) NOT NULL DEFAULT 'No instructions given',
-  date_submitted TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT (NOW() AT TIME ZONE 'UTC'),
+  date_submitted TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW() AT TIME ZONE 'UTC',
   PRIMARY KEY (name)
 );
-
--- Insert sample data to insert (for testing)
-INSERT INTO recipes (name, category, description, ingredients, instructions, date_submitted)
-    VALUES ('Name', 'Category', 'Description', 'Ingredients', 'Instructions', (NOW() AT TIME ZONE 'UTC'));
-
-
