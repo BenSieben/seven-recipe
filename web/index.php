@@ -16,19 +16,19 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/',
 ));
 
-// Set up database PDO
+//Register database code
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
-               array(
-                'pdo.server' => array(
-                   'driver'   => 'pgsql',
-                   'user' => $dbopts["user"],
-                   'password' => $dbopts["pass"],
-                   'host' => $dbopts["host"],
-                   'port' => $dbopts["port"],
-                   'dbname' => ltrim($dbopts["path"],'/')
-                   )
-               )
+    array(
+        'pdo.server' => array(
+            'driver'   => 'pgsql',
+            'user' => $dbopts["user"],
+            'password' => $dbopts["pass"],
+            'host' => $dbopts["host"],
+            'port' => $dbopts["port"],
+            'dbname' => ltrim($dbopts["path"],'/')
+        )
+    )
 );
 
 // Implement autoloader for seven_recipe's files
@@ -56,19 +56,17 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     $app['monolog']->addDebug('logging output.');
     //echo "<!-- " . strval($request) . " -->\n";
     echo "<!-- ";
-    echo "\nDatabase URL (before override globals): '" . getenv('DATABASE_URL') . "'\n";
     $request->overrideGlobals();
-    echo "\nDatabase URL (after override globals): '" . getenv('DATABASE_URL') . "'\n";
-    //print_r($_REQUEST);
-    //$pdo = $app['pdo'];
-    /*$st = $app['pdo']->prepare("SELECT * FROM recipes;");
+    print_r($_REQUEST);
+    $pdo = $app['pdo'];
+    $st = $app['pdo']->prepare("SELECT * FROM recipes;");
     $st->execute();
     while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
         echo $row;
-    }*/
+    }
     echo " -->\n";
-    //$lc = new seven_recipe\controllers\LandingController($app['pdo']);
-    $lc = new seven_recipe\controllers\LandingController(null);
+    $lc = new seven_recipe\controllers\LandingController($app['pdo']);
+    //$lc = new seven_recipe\controllers\LandingController(null);
     $lc->callView();
     // Make a new Controller to determine what page to show to user
     //$controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
