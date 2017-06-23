@@ -18,7 +18,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // Set up database PDO
 $dbopts = parse_url(getenv('DATABASE_URL'));
-echo getenv('DATABASE_URL');
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
                 'pdo.server' => array(
@@ -58,6 +57,7 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     //echo "<!-- " . strval($request) . " -->\n";
     $request->overrideGlobals();
     echo "<!-- ";
+    echo getenv('DATABASE_URL');
     print_r($_REQUEST);
     //$pdo = $app['pdo'];
     /*$st = $app['pdo']->prepare("SELECT * FROM recipes;");
