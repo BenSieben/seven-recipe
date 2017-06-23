@@ -62,7 +62,6 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     $st = $pdo->prepare("SELECT * FROM recipes;");
     $st->execute();
     while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-        $app['monolog']->addDebug('Row ' . $row['name']);
         echo $row;
     }
     echo " -->\n";
