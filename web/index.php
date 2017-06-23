@@ -57,8 +57,8 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     //echo "<!-- " . strval($request) . " -->\n";
     $request->overrideGlobals();
     echo "<!-- ";
-    echo getenv('DATABASE_URL');
-    print_r($_REQUEST);
+    echo "\nDatabase URL:" . getenv('DATABASE_URL') . "\n";
+    //print_r($_REQUEST);
     //$pdo = $app['pdo'];
     /*$st = $app['pdo']->prepare("SELECT * FROM recipes;");
     $st->execute();
