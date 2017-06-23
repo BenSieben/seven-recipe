@@ -59,11 +59,11 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     echo "<!-- ";
     print_r($_REQUEST);
     //$pdo = $app['pdo'];
-    $st = $app['pdo']->prepare("SELECT * FROM recipes;");
+    /*$st = $app['pdo']->prepare("SELECT * FROM recipes;");
     $st->execute();
     while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
         echo $row;
-    }
+    }*/
     echo " -->\n";
     //$lc = new seven_recipe\controllers\LandingController($app['pdo']);
     $lc = new seven_recipe\controllers\LandingController(null);
