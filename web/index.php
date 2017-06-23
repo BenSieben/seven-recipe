@@ -18,6 +18,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // Set up database PDO
 $dbopts = parse_url(getenv('DATABASE_URL'));
+echo getenv('DATABASE_URL');
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
                 'pdo.server' => array(
