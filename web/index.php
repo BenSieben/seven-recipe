@@ -58,8 +58,15 @@ $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use(
     $request->overrideGlobals();
     echo "<!-- ";
     print_r($_REQUEST);
+    $pdo = $app['pdo'];
+    $st = $pdo->prepare("SELECT * FROM recipes;");
+    $st->execute();
+    while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+        $app['monolog']->addDebug('Row ' . $row['name']);
+        echo $row;
+    }
     echo " -->\n";
-    $lc = new seven_recipe\controllers\LandingController($app['pdo']);
+    $lc = new seven_recipe\controllers\LandingController($pdo);
     //$lc = new seven_recipe\controllers\LandingController(null);
     $lc->callView();
     // Make a new Controller to determine what page to show to user
