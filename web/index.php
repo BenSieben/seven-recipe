@@ -55,9 +55,10 @@ spl_autoload_register(function ($className) {
 $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use($app) {
     $app['monolog']->addDebug('logging output.');
     //echo "<!-- " . strval($request) . " -->\n";
-    $request->overrideGlobals();
     echo "<!-- ";
-    echo "\nDatabase URL:" . getenv('DATABASE_URL') . "\n";
+    echo "\nDatabase URL (before override globals): '" . getenv('DATABASE_URL') . "''\n";
+    $request->overrideGlobals();
+    echo "\nDatabase URL (after override globals): '" . getenv('DATABASE_URL') . "''\n";
     //print_r($_REQUEST);
     //$pdo = $app['pdo'];
     /*$st = $app['pdo']->prepare("SELECT * FROM recipes;");
