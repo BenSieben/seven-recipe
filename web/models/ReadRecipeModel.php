@@ -19,7 +19,7 @@ class ReadRecipeModel {
         $statement = $pdo->prepare("SELECT * FROM recipes");
         $statement->execute();
 
-        $result = $statement->get_result();
+        $result = $statement->fetchAll();
         return $result;
     }
 
