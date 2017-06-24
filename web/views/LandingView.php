@@ -44,7 +44,7 @@ class LandingView extends View {
     </form>
 <?php
     $rte = new RecipeTableElement();
-    //echo $rte->render($data['recipeAttributes'], $data['recipes']);
+    echo $rte->render($data['recipeAttributes'], $data['recipes']);
 ?>
 </body>
 </html>
