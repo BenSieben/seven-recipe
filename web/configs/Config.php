@@ -13,6 +13,6 @@ class Config {
     const BASE_URL = "https://seven-recipe.herokuapp.com";  // URL to the website on Heroku
 
     // Array of all the attributes in the recipes relation
-    const RECIPE_ATTRIBUTES = ["Name", "Category", "Ingredients", "Instructions", "Date Submitted"];
+    const RECIPE_ATTRIBUTES = ["Name", "Category", "Description", "Ingredients", "Instructions", "Date Submitted"];
 }
 ?>
