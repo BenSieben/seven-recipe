@@ -28,7 +28,7 @@ class RecipeTableElement {
         $tableHTML = "    <table>\n";
         $tableHTML .= "        <thead><tr>\n";
         foreach($header as $h) {
-            $tableHTML .= "            <th>$h</th>";
+            $tableHTML .= "            <th>$h</th>\n";
         }
         $tableHTML .= "        </tr></thead>\n";
         $tih = new TableItemHelper();
