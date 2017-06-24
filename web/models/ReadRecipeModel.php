@@ -19,7 +19,11 @@ class ReadRecipeModel {
         $statement = $pdo->prepare("SELECT * FROM recipes");
         $statement->execute();
 
-        $result = $statement->fetchAll();
+        //$result = $statement->fetchAll();
+        $result = array();
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+        }
         return $result;
     }
 
