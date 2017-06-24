@@ -21,7 +21,7 @@ class ReadRecipeModel {
 
         //$result = $statement->fetchAll();
         $result = array();
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
             $result[] = $row;
         }
         return $result;
