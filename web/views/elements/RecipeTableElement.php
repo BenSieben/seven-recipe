@@ -25,7 +25,7 @@ class RecipeTableElement {
         if(!isset($header) || !is_array($header)) {
             return false;
         }
-        $tableHTML = "    <table>\n";
+        $tableHTML = "    <table class=\"center\">\n";
         $tableHTML .= "        <thead><tr>\n";
         foreach($header as $h) {
             $tableHTML .= "            <th>$h</th>\n";
