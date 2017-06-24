@@ -46,7 +46,7 @@ class LandingController {
         $data['recipeAttributes'] = Config::RECIPE_ATTRIBUTES;
 
         //Use ReadRecipeModel to get data from recipes relation
-        /*$data['recipes'] = [];
+        $data['recipes'] = [];
         $readRecipeModel = new ReadRecipeModel();
         $result = $readRecipeModel->getAllRecipes($this->pdo);
         if($result !== false) {
@@ -55,7 +55,7 @@ class LandingController {
                 $recipeInfo['content'] = $row;
                 array_push($data['recipes'], $recipeInfo);
             }
-        }*/
+        }
 
         return $data;
     }
