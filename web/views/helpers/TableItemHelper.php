@@ -28,7 +28,7 @@ class TableItemHelper extends Helper {
             $tbodyHTML .= "         <tr>\n";
             $i = 0;
             foreach($content as $column) {
-                if($i === 0) {  // Add link to other page when in first column of the row
+                if($i == 0) {  // Add link to other page when in first column of the row
                     $tbodyHTML .= "            <td><a href=\"$link\">" . htmlspecialchars($column) . "</a></td>\n";
                 }
                 else {
