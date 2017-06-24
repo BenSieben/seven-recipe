@@ -13,3 +13,8 @@ CREATE TABLE recipes(
   date_submitted TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW() AT TIME ZONE 'UTC',
   PRIMARY KEY (name)
 );
+
+-- Sample Insert Statements
+INSERT INTO recipes(name, category, description, ingredients, instructions)
+    VALUES('NameVal', 'CategoryVal', 'DescriptionVal', 'IngredientsVal', 'InstructionsVal');
+
