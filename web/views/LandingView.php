@@ -42,6 +42,9 @@ class LandingView extends View {
         <br />
         <input type="submit" value="Filter results" />
     </form>
+    <br />
+    <h2>Recipe List</h2>
+    <br />
 <?php
     $rte = new RecipeTableElement();
     echo $rte->render($data['recipeAttributes'], $data['recipes']);
