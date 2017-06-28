@@ -5,6 +5,8 @@ use seven_recipe\views\elements\RecipeTableElement;
 /**
  * Class LandingView
  * @package seven_recipe\views
+ *
+ * View for the landing page of the website
  */
 class LandingView extends View {
 
