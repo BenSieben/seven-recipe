@@ -11,8 +11,7 @@ use seven_recipe\views\elements\RecipeTableElement;
 class LandingView extends View {
 
     /**
-     * Should render a HTML page, using $data for certain
-     * parameters of the web page
+     * Renders HTML of the landing page for the website
      * @param $data Array<String> data to use to prepare the web page
      */
     public function render($data)
