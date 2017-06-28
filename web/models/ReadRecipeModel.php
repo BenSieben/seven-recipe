@@ -19,7 +19,6 @@ class ReadRecipeModel {
         $statement = $pdo->prepare("SELECT * FROM recipes");
         $statement->execute();
 
-        //$result = $statement->fetchAll();
         $result = array();
         while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
             $result[] = $row;
@@ -39,10 +38,14 @@ class ReadRecipeModel {
         $statement->bindParam(1, $recipeName, \PDO::PARAM_STR);
         $statement->execute();
 
-        //$result = $statement->fetchAll();
         $result = array();
+        $foundResult = false;
         while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
             $result[] = $row;
+            $foundResult = true;
+        }
+        if(!$foundResult) {
+            return $foundResult;
         }
         return $result;
     }
