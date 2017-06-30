@@ -39,8 +39,8 @@ class RecipeController {
     private function setUpViewData() {
         //Fetch recipe name to look up from super globals
         $data['recipeSearchName'] = "";
-        if(isset($_REQUEST['recipeName'])) {
-            $data['recipeSearchName'] = $_REQUEST['recipeName'];
+        if(isset($_REQUEST['recipeSearchName'])) {
+            $data['recipeSearchName'] = $_REQUEST['recipeSearchName'];
         }
 
         $data = [];
