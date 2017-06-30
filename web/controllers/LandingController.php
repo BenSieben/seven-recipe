@@ -16,7 +16,7 @@ class LandingController {
 
     /**
      * Constructs a new LandingController
-     * @param $pdo PDO reference to database that has recieps relation
+     * @param $pdo \PDO reference to database that has reco[es relation
      */
     public function __construct($pdo) {
         $this->pdo = $pdo;
