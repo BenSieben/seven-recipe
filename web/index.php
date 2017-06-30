@@ -54,26 +54,25 @@ spl_autoload_register(function ($className) {
 // Our web handler for the landing page
 $app->get('/', function(\Symfony\Component\HttpFoundation\Request $request) use($app) {
     $app['monolog']->addDebug('logging output.');
-    //echo "<!-- " . strval($request) . " -->\n";
     echo "<!-- ";
     $request->overrideGlobals();
     print_r($_REQUEST);
-    $pdo = $app['pdo'];
-    $st = $app['pdo']->prepare("SELECT * FROM recipes;");
-    $st->execute();
-    while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-        echo $row;
-    }
     echo " -->\n";
     $lc = new seven_recipe\controllers\LandingController($app['pdo']);
-    //$lc = new seven_recipe\controllers\LandingController(null);
     $lc->callView();
-    // Make a new Controller to determine what page to show to user
-    //$controller = new \seven_recipe\controllers\Controller();  // Must use fully qualified name so Controller successfully used
-    //$controller->processForms();
     return "";
-    //return "<!-- Comment returned --><!DOCTYPE html><html lang=\"en\"><head><title>Seven Recipe</title></head><body><p>Seven Recipe</p></body></html>";
-    //return $app['twig']->render('index.php');
+});
+
+// Web handler for recipe view page
+$app->get('/recipe', function(\Symfony\Component\HttpFoundation\Request $request) use($app) {
+    $app['monolog']->addDebug('logging output.');
+    echo "<!-- ";
+    $request->overrideGlobals();
+    print_r($_REQUEST);
+    echo " -->\n";
+    $lc = new seven_recipe\controllers\RecipeController($app['pdo']);
+    $lc->callView();
+    return "";
 });
 
 
