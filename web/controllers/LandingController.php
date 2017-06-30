@@ -52,7 +52,7 @@ class LandingController {
         if($result !== false) {
             foreach($result as $row) {
                 echo "\n<!-- Row is " . implode("|", $row) . " -->\n";
-                $recipeInfo['link'] = Config::BASE_URL;  // TODO update BASE_URL to link of full recipe details
+                $recipeInfo['link'] = Config::BASE_URL . '/recipe?recipeSearchName=' . $row['name'];
                 $recipeInfo['content'] = $row;
                 array_push($data['recipes'], $recipeInfo);
             }
