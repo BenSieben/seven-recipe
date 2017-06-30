@@ -45,7 +45,13 @@ class ReadRecipeModel {
         $result = array();
         $foundResult = false;
         while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
-            $result[] = $row;
+            $result = $row;
+            /*$result['name'] = $row['name'];
+            $result['category'] = $row['category'];
+            $result['description'] = $row['description'];
+            $result['ingredients'] = $row['ingredients'];
+            $result['instructions'] = $row['instructions'];
+            $result['date_submitted'] = $row['date_submitted'];*/
             $foundResult = true;
         }
         if(!$foundResult) {
