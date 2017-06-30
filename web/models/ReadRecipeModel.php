@@ -34,6 +34,10 @@ class ReadRecipeModel {
      * @return mixed false if no recipe could be found with matching name, or else give back query results
      */
     public function getRecipe($pdo, $recipeName) {
+        if(!is_string($recipeName) || strcmp($recipeName, "") == 0) {
+            return false;
+        }
+
         $statement = $pdo->prepare("SELECT * FROM recipes WHERE name = ?");
         $statement->bindParam(1, $recipeName, \PDO::PARAM_STR);
         $statement->execute();
