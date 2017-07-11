@@ -37,13 +37,13 @@ class RecipeController {
      * @return array data that the landing view needs to create the web page
      */
     private function setUpViewData() {
+        $data = [];
+
         //Fetch recipe name to look up from super globals
         $data['recipeSearchName'] = "";
         if(isset($_REQUEST['recipeSearchName'])) {
             $data['recipeSearchName'] = $_REQUEST['recipeSearchName'];
         }
-
-        $data = [];
 
         //Add base url to data
         $data['url'] = Config::BASE_URL;
