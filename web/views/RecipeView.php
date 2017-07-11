@@ -36,7 +36,7 @@ class RecipeView extends View {
         else {  // Means query to get recipe information succeeded
             echo "
             <h2>" . $data['name'] . "</h2>
-            <h3>" . $data['category'] . " ?></h3>
+            <h3>" . $data['category'] . "</h3>
             <h3>" . $data['description'] . "</h3>
             <h4>" . $data['date_submitted'] . "</h4>";
             //Use some Element classes to generate lists for ingredients / instructions
