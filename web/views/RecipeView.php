@@ -35,10 +35,10 @@ class RecipeView extends View {
         }
         else {  // Means query to get recipe information succeeded
             echo "
-            <h2>" . $data['name'] . "</h2>
-            <h3>" . $data['category'] . "</h3>
-            <h3>" . $data['description'] . "</h3>
-            <h4>" . $data['date_submitted'] . "</h4>";
+            <h2>Name&colon; <em>" . $data['name'] . "</em></h2>
+            <h3>Category&colon; <em>" . $data['category'] . "</em></h3>
+            <h3>Description&colon; <em>" . $data['description'] . "</em></h3>
+            <h4>Date Submitted&colon; <em>" . $data['date_submitted'] . "</em></h4>";
             //Use some Element classes to generate lists for ingredients / instructions
             $ule = new UnorderedListElement();
             echo $ule->render('Ingredients', $data['ingredients']);
