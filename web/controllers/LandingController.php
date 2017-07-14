@@ -39,6 +39,17 @@ class LandingController {
     private function setUpViewData() {
         $data = [];
 
+        //Check for any filtering conditions specified by user
+        $data['recipeSearch'] = '';
+        if(isset($_REQUEST['recipeSearch'])) {
+            $data['recipeSearch'] = html_entity_decode($_REQUEST['recipeSearch']);
+        }
+
+        $data['categorySelect'] = '';
+        if(isset($_REQUEST['categorySelect'])) {
+            $data['categorySelect'] = html_entity_decode($_REQUEST['categorySelect']);
+        }
+
         //Add base url to data
         $data['url'] = Config::BASE_URL;
 
