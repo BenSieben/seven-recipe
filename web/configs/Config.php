@@ -14,5 +14,13 @@ class Config {
 
     // Array of all the attributes in the recipes relation
     const RECIPE_ATTRIBUTES = ["Name", "Category", "Description", "Ingredients", "Instructions", "Date Submitted"];
+
+    // Array of all the categories for recipes
+    const RECIPE_CATEGORIES = [
+        "Appetizer / Starter", "Bread / Roll / Muffin", "Bean / Grain / Legume", "Burger", "Cake / Cupcake",
+        "Candy / Sweet", "Casserole / Gratin", "Cocktail", "Cookie", "Dessert", "Dip / Spread", "Dressing",
+        "Marinade / Rub", "Nonalcoholic Drink", "Pasta / Noodles", "Pie / Tart", "Pizza", "Pudding / Custard",
+        "Salad", "Sandwich", "Sauce / Condiment", "Side Dish", "Soup / Stew", "Stuffing", "Other",
+    ];
 }
 ?>
