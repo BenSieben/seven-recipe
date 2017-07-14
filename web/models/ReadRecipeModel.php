@@ -41,7 +41,7 @@ class ReadRecipeModel {
             return false;
         }
 
-        $statement = $pdo->prepare("SELECT * FROM recipes WHERE name LIKE '%?%' AND category LIKE '%?%'");
+        $statement = $pdo->prepare("SELECT * FROM recipes WHERE name LIKE ? AND category LIKE ?");
         $statement->bindParam(1, $nameFilter, \PDO::PARAM_STR);
         $statement->bindParam(2, $categoryFilter, \PDO::PARAM_STR);
         $statement->execute();
@@ -65,7 +65,7 @@ class ReadRecipeModel {
             return false;
         }
 
-        $statement = $pdo->prepare("SELECT * FROM recipes WHERE name = '?'");
+        $statement = $pdo->prepare("SELECT * FROM recipes WHERE name = ?");
         $statement->bindParam(1, $recipeName, \PDO::PARAM_STR);
         $statement->execute();
 
