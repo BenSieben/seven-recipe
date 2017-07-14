@@ -30,7 +30,7 @@ class LandingView extends View {
     <h2>Recipe Search</h2>
     <form name="recipeSearchForm" action="" method="get">
         <label>Filter by recipe name:
-            <input type="text" name="recipeSearch" placeholder="Recipe name (or portion of recipe name)" size="40"/>
+            <input type="text" name="recipeSearch" placeholder="Recipe name (or portion of recipe name)" size="40" value="<?= $data['recipeSearch'] ?>"/>
         </label>
         <br />
         <label>Filter by a category:
