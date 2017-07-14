@@ -59,7 +59,8 @@ class LandingController {
         //Use ReadRecipeModel to get data from recipes relation
         $data['recipes'] = [];
         $readRecipeModel = new ReadRecipeModel();
-        $result = $readRecipeModel->getFilteredRecipes($this->pdo, $data['recipeSearch'], $data['categorySelect']);
+        //$result = $readRecipeModel->getFilteredRecipes($this->pdo, $data['recipeSearch'], $data['categorySelect']);
+        $result = $readRecipeModel->getAllRecipes($this->pdo);
         echo "<!-- result variable value: \n";
         print_r($result);
         echo " -->\n";
