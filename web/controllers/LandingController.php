@@ -63,6 +63,9 @@ class LandingController {
         echo "<!-- result variable value: \n";
         print_r($result);
         echo " -->\n";
+        $logStr = "<!-- recipeSearch is " . $data['recipeSearch'] . ", categorySelect is " .
+            $data['categorySelect'] . " -->";
+        echo $logStr;
         if($result !== false) {
             foreach($result as $row) {
                 echo "\n<!-- Row is " . implode("|", $row) . " -->\n";
