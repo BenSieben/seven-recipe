@@ -60,6 +60,9 @@ class LandingController {
         $data['recipes'] = [];
         $readRecipeModel = new ReadRecipeModel();
         $result = $readRecipeModel->getFilteredRecipes($this->pdo, $data['recipeSearch'], $data['categorySelect']);
+        echo "<-- result variable value: \n";
+        print_r($result);
+        echo " -->\n";
         if($result !== false) {
             foreach($result as $row) {
                 echo "\n<!-- Row is " . implode("|", $row) . " -->\n";
