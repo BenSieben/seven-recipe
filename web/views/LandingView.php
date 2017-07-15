@@ -1,6 +1,7 @@
 <?php
 namespace seven_recipe\views;
 use seven_recipe\views\elements\RecipeTableElement;
+use seven_recipe\views\helpers\SelectOptionHelper;
 
 /**
  * Class LandingView
@@ -35,9 +36,10 @@ class LandingView extends View {
         <br />
         <label>Filter by a category:
             <select name="categorySelect" title="Category Selection">
-                <option>Category 1</option>
-                <option>Category 2</option>
-                <option>Category 3</option>
+<?php
+                $soh = new SelectOptionHelper($data['categorySelect']);
+                echo $soh->render($data['recipeCategories']);
+?>
             </select>
         </label>
         <br />

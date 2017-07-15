@@ -56,6 +56,9 @@ class LandingController {
         //Add headers
         $data['recipeAttributes'] = Config::RECIPE_ATTRIBUTES;
 
+        //Add list of recipe categories
+        $data['recipeCategories'] = Config::RECIPE_CATEGORIES;
+
         //Use ReadRecipeModel to get data from recipes relation
         $data['recipes'] = [];
         $readRecipeModel = new ReadRecipeModel();
