@@ -42,7 +42,7 @@ class LandingController {
         //Check for any filtering conditions specified by user
         $data['recipeSearch'] = '';
         if(isset($_REQUEST['recipeSearch'])) {
-            $data['recipeSearch'] = html_entity_decode($_REQUEST['recipeSearch']);
+            $data['recipeSearch'] = trim(html_entity_decode($_REQUEST['recipeSearch']));
         }
 
         $data['categorySelect'] = '';
