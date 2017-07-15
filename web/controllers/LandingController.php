@@ -58,6 +58,8 @@ class LandingController {
 
         //Add list of recipe categories
         $data['recipeCategories'] = Config::RECIPE_CATEGORIES;
+        // Add option to not use category filter as first option to the recipe categories array on the landing page
+        array_unshift($data['recipeCategories'], Config::RECIPE_NO_CATEGORY_FILTER);
 
         //Use ReadRecipeModel to get data from recipes relation
         $data['recipes'] = [];

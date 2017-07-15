@@ -1,5 +1,6 @@
 <?php
 namespace seven_recipe\models;
+use seven_recipe\configs\Config;
 
 /**
  * Class ReadRecipeModel
@@ -39,6 +40,13 @@ class ReadRecipeModel {
         }
         if(!isset($categoryFilter) || !is_string($categoryFilter)) {
             return false;
+        }
+
+        //If the category filter is what Config indicates as no selection, we will not use it in query
+        $noCategoryFilter = Config::RECIPE_NO_CATEGORY_FILTER;
+        if(strcmp($noCategoryFilter, $categoryFilter) == 0) {
+            // Set category to empty string if it matches the phrase used to indicate to not filter by category
+            $categoryFilter = '';
         }
 
         $statement = $pdo->prepare("SELECT * FROM recipes WHERE name LIKE ? AND category LIKE ?");

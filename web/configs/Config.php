@@ -22,5 +22,8 @@ class Config {
         "Marinade / Rub", "Nonalcoholic Drink", "Pasta / Noodles", "Pie / Tart", "Pizza", "Pudding / Custard",
         "Salad", "Sandwich", "Sauce / Condiment", "Side Dish", "Soup / Stew", "Stuffing", "Other",
     ];
+
+    // String to represent the option from user to not apply category filter to their search
+    const RECIPE_NO_CATEGORY_FILTER = "No Filter";
 }
 ?>
