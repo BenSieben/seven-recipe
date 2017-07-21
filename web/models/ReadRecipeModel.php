@@ -55,18 +55,30 @@ class ReadRecipeModel {
                 $statement = $pdo->prepare("SELECT * FROM recipes WHERE name LIKE ? AND category LIKE ?");
                 $statement->bindParam(1, $nameFilter, \PDO::PARAM_STR);
                 $statement->bindParam(2, $categoryFilter, \PDO::PARAM_STR);
+                echo "\n<!-- ";
+                echo "SELECT * FROM recipes WHERE name LIKE $nameFilter AND category LIKE $categoryFilter";
+                echo " -->\n";
             }
             else {  // Filter by name only
                 $statement = $pdo->prepare("SELECT * FROM recipes WHERE name LIKE ?");
                 $statement->bindParam(1, $nameFilter, \PDO::PARAM_STR);
+                echo "\n<!-- ";
+                echo "SELECT * FROM recipes WHERE name LIKE $nameFilter";
+                echo " -->\n";
             }
         }
         else if(strcmp($categoryFilter, '') != 0) {  // Filter by category only
             $statement = $pdo->prepare("SELECT * FROM recipes WHERE category LIKE ?");
             $statement->bindParam(1, $categoryFilter, \PDO::PARAM_STR);
+            echo "\n<!-- ";
+            echo "SELECT * FROM recipes WHERE category LIKE $categoryFilter";
+            echo " -->\n";
         }
         else {  // No filter
             $statement = $pdo->prepare("SELECT * FROM recipes");
+            echo "\n<!-- ";
+            echo "SELECT * FROM recipes";
+            echo " -->\n";
         }
 
         // Execute the statement and return the results in an array
