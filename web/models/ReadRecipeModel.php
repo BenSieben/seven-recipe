@@ -50,7 +50,7 @@ class ReadRecipeModel {
         }
 
         // Depending on which variables are "set", we  will do slightly different queries to get the results back
-        if(strcmp($nameFilter, '' != 0)) {
+        if(strcmp($nameFilter, '') != 0) {
             if(strcmp($categoryFilter, '') != 0) {  // Filter by name and category
                 $statement = $pdo->prepare("SELECT * FROM recipes WHERE name LIKE ? AND category LIKE ?");
                 $statement->bindParam(1, $nameFilter, \PDO::PARAM_STR);
